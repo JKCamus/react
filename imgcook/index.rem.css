@@ -1,0 +1,110 @@
+/* 视觉稿宽度为 750, 请设置html的font-size为 37.5px, 以便在布局视口宽度为 375 的页面中自适应 */
+.mod {
+  width: 7.71rem;
+  height: 5.97rem;
+}
+.box {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 7.71rem;
+  height: 5.97rem;
+}
+.bd {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  width: 7.71rem;
+  height: 4.47rem;
+}
+.banner {
+  position: relative;
+  width: 7.71rem;
+  height: 4.47rem;
+}
+.actionBgWrap {
+  display: flex;
+  position: absolute;
+  right: 0rem;
+  bottom: 0rem;
+  align-items: center;
+  flex-direction: row;
+  width: 2.39rem;
+  height: 0.69rem;
+}
+.actionBg {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 2.39rem;
+  height: 0.69rem;
+  overflow: hidden;
+}
+.text {
+  position: relative;
+  margin-left: 0.81rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 0.37rem;
+  letter-spacing: 0.04rem;
+  color: #ffffff;
+  font-size: 0.37rem;
+}
+.ft {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #edd9b1;
+  background-image: linear-gradient(to right, rgb(236,219,188), rgb(173,152,136));
+  width: 7.71rem;
+  height: 1.51rem;
+  overflow: hidden;
+}
+.desc {
+  -webkit-line-clamp: 0.03rem;
+  display: flex;
+  flex-direction: row;
+  opacity: 0.01rem;
+  margin-top: 0.31rem;
+  margin-left: 2.71rem;
+  border-radius: 0rem;
+  padding-top: 0.07rem;
+  width: 4.6rem;
+  height: 0.35rem;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  line-height: 0.17rem;
+  letter-spacing: 0;
+  color: #342d25;
+  font-size: 0.33rem;
+}
+.info {
+  -webkit-line-clamp: 0.03rem;
+  position: relative;
+  margin-top: 0.19rem;
+  margin-left: 2.71rem;
+  padding-top: 0.07rem;
+  width: 3.52rem;
+  height: 0.35rem;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  line-height: 0.17rem;
+  letter-spacing: 0;
+  color: #342d25;
+  font-size: 0.33rem;
+}
+.pic {
+  position: absolute;
+  bottom: 0.23rem;
+  left: 0.27rem;
+  width: 1.88rem;
+  height: 1.88rem;
+  overflow: hidden;
+}

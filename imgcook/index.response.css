@@ -1,0 +1,109 @@
+.mod {
+  width: 77.07vw;
+  height: 59.73vw;
+}
+.mod .box {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 77.07vw;
+  height: 59.73vw;
+}
+.mod .bd {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  width: 77.07vw;
+  height: 44.67vw;
+}
+.mod .banner {
+  position: relative;
+  width: 77.07vw;
+  height: 44.67vw;
+}
+.mod .actionBgWrap {
+  display: flex;
+  position: absolute;
+  right: 0vw;
+  bottom: 0vw;
+  align-items: center;
+  flex-direction: row;
+  width: 23.87vw;
+  height: 6.93vw;
+}
+.mod .actionBg {
+  position: absolute;
+  top: 0vw;
+  left: 0vw;
+  width: 23.87vw;
+  height: 6.93vw;
+  overflow: hidden;
+}
+.mod .text {
+  position: relative;
+  margin-left: 8.13vw;
+  text-align: center;
+  text-decoration: none;
+  line-height: 3.73vw;
+  letter-spacing: 2.8;
+  color: #ffffff;
+  font-size: 3.73vw;
+}
+.mod .ft {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #edd9b1;
+  background-image: linear-gradient(to right, rgb(236,219,188), rgb(173,152,136));
+  width: 77.07vw;
+  height: 15.07vw;
+  overflow: hidden;
+}
+.mod .desc {
+  display: flex;
+  flex-direction: row;
+  opacity: 1;
+  margin-top: 3.07vw;
+  margin-left: 27.07vw;
+  border-radius: 0px;
+  padding-top: 0.67vw;
+  width: 46vw;
+  height: 3.47vw;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  line-height: 1.73vw;
+  letter-spacing: 0;
+  color: #342d25;
+  font-size: 3.33vw;
+  -webkit-line-clamp: 2;
+}
+.mod .info {
+  position: relative;
+  margin-top: 1.87vw;
+  margin-left: 27.07vw;
+  padding-top: 0.67vw;
+  width: 35.2vw;
+  height: 3.47vw;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  line-height: 1.73vw;
+  letter-spacing: 0;
+  color: #342d25;
+  font-size: 3.33vw;
+  -webkit-line-clamp: 2;
+}
+.mod .pic {
+  position: absolute;
+  bottom: 2.27vw;
+  left: 2.67vw;
+  width: 18.8vw;
+  height: 18.8vw;
+  overflow: hidden;
+}

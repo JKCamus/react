@@ -1,0 +1,109 @@
+.mod {
+  width: 578px;
+  height: 448px;
+}
+.mod .box {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 578px;
+  height: 448px;
+}
+.mod .bd {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  width: 578px;
+  height: 335px;
+}
+.mod .banner {
+  position: relative;
+  width: 578px;
+  height: 335px;
+}
+.mod .actionBgWrap {
+  display: flex;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  align-items: center;
+  flex-direction: row;
+  width: 179px;
+  height: 52px;
+}
+.mod .actionBg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 179px;
+  height: 52px;
+  overflow: hidden;
+}
+.mod .text {
+  position: relative;
+  margin-left: 61px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 28px;
+  letter-spacing: 2.8;
+  color: #ffffff;
+  font-size: 28px;
+}
+.mod .ft {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #edd9b1;
+  background-image: linear-gradient(to right, rgb(236,219,188), rgb(173,152,136));
+  width: 578px;
+  height: 113px;
+  overflow: hidden;
+}
+.mod .desc {
+  -webkit-line-clamp: 2;
+  display: flex;
+  flex-direction: row;
+  opacity: 1;
+  margin-top: 23px;
+  margin-left: 203px;
+  border-radius: 0px;
+  padding-top: 5px;
+  width: 345px;
+  height: 26px;
+  overflow: hidden;
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  line-height: 13px;
+  letter-spacing: 0;
+  color: #342d25;
+  font-size: 25px;
+}
+.mod .info {
+  -webkit-line-clamp: 2;
+  position: relative;
+  margin-top: 14px;
+  margin-left: 203px;
+  padding-top: 5px;
+  width: 264px;
+  height: 26px;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  line-height: 13px;
+  letter-spacing: 0;
+  color: #342d25;
+  font-size: 25px;
+}
+.mod .pic {
+  position: absolute;
+  bottom: 17px;
+  left: 20px;
+  width: 141px;
+  height: 141px;
+  overflow: hidden;
+}
