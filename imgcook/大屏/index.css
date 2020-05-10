@@ -1,0 +1,215 @@
+.page {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  width: 1920px;
+  height: 1080px;
+}
+.page .primary {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fafafa;
+  width: 91px;
+  height: 1080px;
+}
+.page .zu {
+  position: relative;
+  margin-top: 32px;
+  width: 41px;
+  height: 29px;
+}
+.page .zuWrap {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 57px;
+  width: 27px;
+  height: 23px;
+}
+.page .zu_2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 27px;
+  height: 23px;
+}
+.page .zu_3 {
+  position: relative;
+  width: 19px;
+  height: 10px;
+}
+.page .block {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 22px;
+  background-color: rgba(22,119,255,0.10);
+  width: 91px;
+  height: 66px;
+}
+.page .color {
+  margin-right: 28px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  background-color: #1677ff;
+  width: 4px;
+  height: 66px;
+}
+.page .zu_4 {
+  margin-top: 4px;
+  width: 28px;
+  height: 24px;
+}
+.page .zu_5 {
+  position: relative;
+  margin-top: 26px;
+  width: 27px;
+  height: 27px;
+}
+.page .zu_6 {
+  position: relative;
+  margin-top: 39px;
+  width: 27px;
+  height: 26px;
+}
+.page .zuWrap_2 {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 42px;
+  width: 27px;
+  height: 25px;
+}
+.page .zu_7 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 27px;
+  height: 25px;
+}
+.page .zu_8 {
+  position: relative;
+  width: 20px;
+  height: 14px;
+}
+.page .side {
+  position: relative;
+  background-color: #f5f5f5;
+  width: 1829px;
+  height: 1080px;
+}
+.page .block_2 {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 1920px;
+  height: 96px;
+}
+.page .zu_9 {
+  position: absolute;
+  top: 40px;
+  right: 320px;
+  width: 16px;
+  height: 16px;
+}
+.page .container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-self: flex-end;
+  flex-direction: row;
+  margin-top: 28px;
+  margin-right: 34px;
+  width: 1142px;
+  height: 44px;
+}
+.page .txt {
+  margin-top: -5px;
+  margin-right: 64px;
+  line-height: 40px;
+  color: #999999;
+  font-size: 20px;
+  font-weight: 400;
+}
+.page .word {
+  margin-top: -5px;
+  margin-right: 64px;
+  line-height: 40px;
+  color: #1677ff;
+  font-size: 20px;
+  font-weight: 500;
+}
+.page .text {
+  margin-top: -5px;
+  margin-right: 64px;
+  line-height: 40px;
+  color: #999999;
+  font-size: 20px;
+  font-weight: 400;
+}
+.page .txt_2 {
+  margin-top: -5px;
+  margin-right: 396px;
+  line-height: 40px;
+  color: #999999;
+  font-size: 20px;
+  font-weight: 400;
+}
+.page .outer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 44px;
+}
+.page .tagWrap {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: -4px;
+  margin-right: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 18px;
+  border-color: rgba(22,119,255,1);
+  padding-right: 142px;
+  padding-left: 40px;
+  height: 36px;
+}
+.page .tag {
+  line-height: 20px;
+  color: #999999;
+  font-size: 14px;
+  font-weight: 400;
+}
+.page .zu_10 {
+  margin-right: 12px;
+  width: 48px;
+  height: 44px;
+}
+.page .zu_11 {
+  margin-top: -4px;
+  width: 14px;
+  height: 8px;
+}
+.page .colorDiv {
+  position: relative;
+  margin-top: 11px;
+  margin-left: 912px;
+  border-radius: 2.5px;
+  background-color: #1677ff;
+  width: 32px;
+  height: 4px;
+}
