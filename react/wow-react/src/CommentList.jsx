@@ -22,7 +22,7 @@ class CommentList extends React.Component {
             </div>
           );
         })} */}
-        {comments.map((comment, index) => (
+        {this.props.comments.map((comment, index) => (
           <Comment comment={comment} key={index}></Comment>
         ))}
       </div>

@@ -27,7 +27,7 @@ class CommentInput extends React.Component {
       console.log(this);
       this.props.onSubmit({ username, content });
     }
-    this.setState({ content: "" }); //清空内容
+    this.setState({ content: "",username:''}); //清空内容
   };
   render() {
     return (

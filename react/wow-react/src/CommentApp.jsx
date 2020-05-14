@@ -5,17 +5,23 @@ import CommentList from "./CommentList.jsx";
 class CommentApp extends React.Component {
   constructor() {
     super();
+    this.state = {
+      comments: [],
+    };
   }
-  appSubmit=(e)=>{
-    console.log(e);//{username: " 12", content: "12"}点击submit后
-    
-  }
+  appSubmit = (comment) => {
+    // console.log(e); //{username: " 12", content: "12"}点击submit后
+    this.state.comments.push(comment);
+    this.setState({
+      comments: this.state.comments,
+    });
+  };
   render() {
     return (
-      <div className='wrapper'>
+      <div className="wrapper">
         HelloWorld react
         <CommentInput onSubmit={this.appSubmit}></CommentInput>
-        <CommentList></CommentList>
+        <CommentList comments={this.state.comments}></CommentList>
       </div>
     );
   }
