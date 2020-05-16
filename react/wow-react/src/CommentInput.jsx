@@ -1,12 +1,12 @@
-import React  from "react";
+import React from "react";
 //引入类型检查
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 class CommentInput extends React.Component {
   // 检查在 constructor之外
   static propTypes = {
     // onSubmit为父组件放下的钩子函数，即子传父的回调
-    onSubmit: PropTypes.func
-  }
+    onSubmit: PropTypes.func,
+  };
   constructor() {
     super();
     this.state = {
@@ -14,8 +14,17 @@ class CommentInput extends React.Component {
       content: " ",
     };
   }
-  componentDidMount(){
-    this.textarea.focus()
+  /* 组件加载时聚焦到评论区 */
+  componentDidMount() {
+    this.textarea.focus();
+this._loadUsername()
+  }
+  componentDidUpdate() {
+    // this.input.focus(()=>{
+    //   console.log(12);
+    // })
+    // console.log(this.refs.input);
+    //* console.log(this.input); //拿到当前挂着ref的Dom元素
   }
   usernameInput(e) {
     this.setState({
@@ -39,15 +48,24 @@ class CommentInput extends React.Component {
     this.setState({ content: "", username: "" }); //清空内容
   };
 
-  componentDidUpdate() {
-    // this.input.focus(()=>{
-    //   console.log(12);
-
-    // })
-    // console.log(this.refs.input);
-    //* console.log(this.input); //拿到当前挂着ref的Dom元素
+  // 私有方法，请使用_开头
+  _saveUsername(username) {
+    localStorage.setItem("username", username);
   }
-
+  _loadUsername(){
+    // 获取localStorage中的信息
+    const username=localStorage.getItem('username')
+    if(username){
+      this.setState({username})
+    }
+  }
+  handleUsernameBlur = (e) => {
+    // 用户名失焦时存储username到localStorage
+    this._saveUsername(e.target.value);
+    console.log("====================================");
+    console.log(e.target.value);
+    console.log("====================================");
+  };
   render() {
     return (
       <div className="comment-input">
@@ -57,6 +75,7 @@ class CommentInput extends React.Component {
             <input
               value={this.state.username}
               // ref={(input)=>this.input=input}
+              onBlur={this.handleUsernameBlur}
               onChange={this.usernameInput.bind(this)}
             />
           </div>
