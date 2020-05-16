@@ -1,6 +1,12 @@
-import React from "react";
-
+import React  from "react";
+//引入类型检查
+import PropTypes from 'prop-types';
 class CommentInput extends React.Component {
+  // 检查在 constructor之外
+  static propTypes = {
+    // onSubmit为父组件放下的钩子函数，即子传父的回调
+    onSubmit: PropTypes.func
+  }
   constructor() {
     super();
     this.state = {
@@ -8,13 +14,16 @@ class CommentInput extends React.Component {
       content: " ",
     };
   }
+  componentDidMount(){
+    this.textarea.focus()
+  }
   usernameInput(e) {
     this.setState({
       username: e.target.value,
     });
-    console.log("====================================");
-    console.log(e.target); //!拿到的是当前dom元素
-    console.log("====================================");
+    // console.log("====================================");
+    // console.log(e.target); //!拿到的是当前dom元素
+    // console.log("====================================");
   }
   submit = (e) => {
     // console.log("====================================");
@@ -24,11 +33,21 @@ class CommentInput extends React.Component {
     // 相当于父组件会放下一个篮子，子组件将需要传递过去的参数放在篮子里，父组件就可以拉回去了
     if (this.props.onSubmit) {
       const { username, content } = this.state;
-      console.log(this);
+      // console.log(this);
       this.props.onSubmit({ username, content });
     }
-    this.setState({ content: "",username:''}); //清空内容
+    this.setState({ content: "", username: "" }); //清空内容
   };
+
+  componentDidUpdate() {
+    // this.input.focus(()=>{
+    //   console.log(12);
+
+    // })
+    // console.log(this.refs.input);
+    //* console.log(this.input); //拿到当前挂着ref的Dom元素
+  }
+
   render() {
     return (
       <div className="comment-input">
@@ -37,6 +56,7 @@ class CommentInput extends React.Component {
           <div className="comment-field-input">
             <input
               value={this.state.username}
+              // ref={(input)=>this.input=input}
               onChange={this.usernameInput.bind(this)}
             />
           </div>
@@ -52,6 +72,7 @@ class CommentInput extends React.Component {
              */}
             <textarea
               value={this.state.content}
+              ref={(textarea) => (this.textarea = textarea)}
               onChange={(e) => {
                 this.setState({ content: e.target.value });
               }}
