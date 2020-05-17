@@ -30,8 +30,16 @@ class CommentApp extends React.Component {
       comments,
     });
     this._saveComment(comments);
-   };
-   /* 添加评论持久化功能 */
+  };
+  handleDeleteComment = (index) => {
+    // console.log(index);
+    const comments=this.state.comments
+    comments.splice(index,1)
+    this.setState({comments})
+    this._saveComment(comments)
+  };
+  /* 私有方法 */
+  /* 添加评论持久化功能 */
   _saveComment(comments) {
     // localStorage.setItem("comments", JSON.stringify(comments));
     localStorage.setItem("comments", JSON.stringify(comments));
@@ -41,7 +49,7 @@ class CommentApp extends React.Component {
     if (comments) {
       comments = JSON.parse(comments);
       this.setState({ comments });
-      console.log(comments);
+      // console.log(comments);
     }
   }
   render() {
@@ -49,7 +57,10 @@ class CommentApp extends React.Component {
       <div className="wrapper">
         HelloWorld react
         <CommentInput onSubmit={this.appSubmit}></CommentInput>
-        <CommentList comments={this.state.comments}></CommentList>
+        <CommentList
+          comments={this.state.comments}
+          onDeleteComment={this.handleDeleteComment}
+        ></CommentList>
       </div>
     );
   }

@@ -5,6 +5,8 @@ class Comment extends React.Component {
   static propTypes = {
     /* 检查输入格式，毕传 */
     comment: PropTypes.object.isRequired,
+    onDeleteComment: PropTypes.func,
+    index: PropTypes.number,
   };
 
   constructor() {
@@ -13,12 +15,18 @@ class Comment extends React.Component {
   }
   componentWillMount() {
     this._updateTimeString();
-    this._timer = setInterval(
-
-      this._updateTimeString.bind(this), 5000
-    );
+    // 每5秒更新一次时间戳
+    this._timer = setInterval(this._updateTimeString.bind(this), 5000);
   }
-
+  handleDeleteComment = () => {
+    console.log("点击删除");
+    if (this.props.onDeleteComment) {
+      this.props.onDeleteComment(this.props.index);
+      // console.log(this.props.index);
+      
+    }
+  };
+  /* 添加时间戳，两次评论的间隔时间 */
   _updateTimeString() {
     const comment = this.props.comment;
     const duration = (+Date.now() - comment.createdTime) / 1000;
@@ -34,12 +42,16 @@ class Comment extends React.Component {
       <div>
         <div className="comment">
           <div className="comment-user">
-            <span>{this.props.comment.username} </span>：
+            <span className="comment-username">{this.props.comment.username} </span>：
           </div>
           <p> {this.props.comment.content}</p>
+          
           <span className="comment-createdtime">{this.state.timeString}</span>
         </div>
-        Comment
+        <span className="commentdelete" onClick={this.handleDeleteComment}>
+          删除
+        </span>
+        {/* Comment */}
       </div>
     );
   }

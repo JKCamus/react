@@ -24,7 +24,7 @@ class CommentInput extends React.Component {
     //   console.log(12);
     // })
     // console.log(this.refs.input);
-    console.log(this.state);
+    // console.log(this.state);
 
     //* console.log(this.input); //拿到当前挂着ref的Dom元素
   }
