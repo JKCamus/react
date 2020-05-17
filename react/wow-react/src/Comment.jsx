@@ -64,10 +64,12 @@ class Comment extends React.Component {
           ></p>
 
           <span className="comment-createdtime">{this.state.timeString}</span>
-        </div>
-        <span className="commentdelete" onClick={this.handleDeleteComment}>
+
+        <span className="comment-delete" onClick={this.handleDeleteComment}>
           删除
         </span>
+        </div>
+        
         {/* Comment */}
       </div>
     );

@@ -107,19 +107,20 @@ body {
   padding: 5px;
   font-size: 12px;
 }
-
+/* 设置评论栏hover时，删除可见，此时，comment为父，comment-delete为子*/
 .comment:hover .comment-delete {
   color: #00a3cf;
 }
 
 .comment-delete {
   position: absolute;
-  right: 0;
+  right: 5px;
   top: 0;
   color: transparent;
   font-size: 12px;
   cursor: pointer;
 }
+
 
 .comment p {
   margin: 0;

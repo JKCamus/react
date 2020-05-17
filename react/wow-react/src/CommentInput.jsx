@@ -16,7 +16,21 @@ class CommentInput extends React.Component {
   }
   /* 组件加载时聚焦到评论区 */
   componentDidMount() {
-    this.textarea.focus();
+    const username = localStorage.getItem("username");
+    // if(username==null||typeof username=="undefined"||username.trim()==""){
+    //   this.input.focus()
+    // }
+
+    /* 判断是username是否为空，为空时聚焦到用户名输入 */
+    if (
+      username == null ||
+      typeof username == "undefined" ||
+      username.trim() == ""
+    ) {
+      this.input.focus();
+    } else {
+      this.textarea.focus();
+    }
     this._loadUsername();
   }
   componentDidUpdate() {
@@ -25,7 +39,6 @@ class CommentInput extends React.Component {
     // })
     // console.log(this.refs.input);
     // console.log(this.state);
-
     //* console.log(this.input); //拿到当前挂着ref的Dom元素
   }
   usernameInput(e) {
@@ -48,7 +61,9 @@ class CommentInput extends React.Component {
       /* 传递带时间戳的评论 */
       this.props.onSubmit({ username, content, createdTime: +new Date() });
     }
-    this.setState({ content: "", username: "" }); //清空内容
+    // this.setState({ content: "", username: "" }); //清空内容
+    // 只清空评论
+    this.setState({ content: "" }); //清空内容
   };
 
   // 私有方法，请使用_开头
@@ -58,6 +73,8 @@ class CommentInput extends React.Component {
   _loadUsername() {
     // 获取localStorage中的信息
     const username = localStorage.getItem("username");
+    console.log(typeof username);
+
     if (username) {
       this.setState({ username });
     }
@@ -77,7 +94,7 @@ class CommentInput extends React.Component {
           <div className="comment-field-input">
             <input
               value={this.state.username}
-              // ref={(input)=>this.input=input}
+              ref={(input) => (this.input = input)}
               onBlur={this.handleUsernameBlur}
               onChange={this.usernameInput.bind(this)}
             />
