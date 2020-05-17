@@ -18,6 +18,10 @@ class Comment extends React.Component {
     // 每5秒更新一次时间戳
     this._timer = setInterval(this._updateTimeString.bind(this), 5000);
   }
+  componentWillUnmount(){
+    clearInterval(this._timer)
+    
+  }
   handleDeleteComment = () => {
     console.log("点击删除");
     if (this.props.onDeleteComment) {
