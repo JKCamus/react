@@ -17,7 +17,7 @@ class CommentInput extends React.Component {
   /* 组件加载时聚焦到评论区 */
   componentDidMount() {
     this.textarea.focus();
-this._loadUsername()
+    this._loadUsername();
   }
   componentDidUpdate() {
     // this.input.focus(()=>{
@@ -52,11 +52,11 @@ this._loadUsername()
   _saveUsername(username) {
     localStorage.setItem("username", username);
   }
-  _loadUsername(){
+  _loadUsername() {
     // 获取localStorage中的信息
-    const username=localStorage.getItem('username')
-    if(username){
-      this.setState({username})
+    const username = localStorage.getItem("username");
+    if (username) {
+      this.setState({ username });
     }
   }
   handleUsernameBlur = (e) => {

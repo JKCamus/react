@@ -9,11 +9,13 @@ class CommentList extends React.Component {
 componentDidUpdate(){
   // console.log(this.woc);
   // console.log(this.refs);
-  console.log(this.myRef1);//*回调型Refs，写法一
+  // console.log(this.myRef1);//*回调型Refs，写法一
   
   // console.log(this.myRef2);
+  console.log(this.props.comments);
   
 }
+
   render() {
     const comments = [
       { username: "Jerry", content: "Hello" },
@@ -34,6 +36,7 @@ componentDidUpdate(){
           <Comment ref={element => (this.myRef1 = element)} comment={comment} key={index}></Comment>//*直接拿元素的话推荐：回调型Refs，写法一
           // <Comment ref={this.myRef2} comment={comment} key={index}></Comment>//*回调型Refs，写法二
         ))}
+        
       </div>
     );
   }
