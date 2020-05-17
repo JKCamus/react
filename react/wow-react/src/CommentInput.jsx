@@ -24,6 +24,8 @@ class CommentInput extends React.Component {
     //   console.log(12);
     // })
     // console.log(this.refs.input);
+    console.log(this.state);
+
     //* console.log(this.input); //拿到当前挂着ref的Dom元素
   }
   usernameInput(e) {
@@ -43,7 +45,8 @@ class CommentInput extends React.Component {
     if (this.props.onSubmit) {
       const { username, content } = this.state;
       // console.log(this);
-      this.props.onSubmit({ username, content });
+      /* 传递带时间戳的评论 */
+      this.props.onSubmit({ username, content, createdTime: +new Date() });
     }
     this.setState({ content: "", username: "" }); //清空内容
   };
@@ -62,9 +65,9 @@ class CommentInput extends React.Component {
   handleUsernameBlur = (e) => {
     // 用户名失焦时存储username到localStorage
     this._saveUsername(e.target.value);
-    console.log("====================================");
-    console.log(e.target.value);
-    console.log("====================================");
+    // console.log("====================================");
+    // console.log(e.target.value);
+    // console.log("====================================");
   };
   render() {
     return (
