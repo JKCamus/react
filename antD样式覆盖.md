@@ -4,7 +4,7 @@
 
 首先找到需要覆盖的antD样式的类，如`.ant-menu-submenu-arrow::before`，将该类声明到全局。需要注意，必须添加`!important`修改样式如下：
 
-```less
+```less {.class1 .class}
 .antArrow {
   :global(.ant-menu-submenu-arrow::before  ) {
     display: none !important;
