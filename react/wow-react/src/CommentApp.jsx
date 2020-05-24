@@ -1,5 +1,5 @@
 import React from "react";
-import CommentInput from "./CommentInput.jsx";
+import CommentInput from "./components/CommentInput.jsx";
 import CommentList from "./components/CommentList";
 
 class CommentApp extends React.Component {
