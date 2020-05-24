@@ -6,38 +6,41 @@ class CommentInput extends React.Component {
   static propTypes = {
     // onSubmit为父组件放下的钩子函数，即子传父的回调
     onSubmit: PropTypes.func,
-    username:PropTypes.any,
-    onUserNameInputBluer:PropTypes.func
+    username: PropTypes.any,
+    onUserNameInputBluer: PropTypes.func,
   };
   // 传入默认值
-  static defaultProp={
-    username:''
-  }
-  constructor() {
-    super();
+  static defaultProp = {
+    username: "",
+  };
+  constructor(props) {
+    super(props);
     this.state = {
-      username: " ",
+      username: props.username, //改为从props里面获取username
       content: " ",
     };
   }
   /* 组件加载时聚焦到评论区 */
   componentDidMount() {
-    const username = localStorage.getItem("username");
-    // if(username==null||typeof username=="undefined"||username.trim()==""){
-    //   this.input.focus()
-    // }
+    //! redux更改前
+    // const username = localStorage.getItem("username");
+    // // if(username==null||typeof username=="undefined"||username.trim()==""){
+    // //   this.input.focus()
+    // // }
 
-    /* 判断是username是否为空，为空时聚焦到用户名输入 */
-    if (
-      username == null ||
-      typeof username == "undefined" ||
-      username.trim() == ""
-    ) {
-      this.input.focus();
-    } else {
-      this.textarea.focus();
-    }
-    this._loadUsername();
+    // /* 判断是username是否为空，为空时聚焦到用户名输入 */
+    // if (
+    //   username == null ||
+    //   typeof username == "undefined" ||
+    //   username.trim() == ""
+    // ) {
+    //   this.input.focus();
+    // } else {
+    //   this.textarea.focus();
+    // }
+    // this._loadUsername();
+    //* 更改后
+    this.textarea.focus;
   }
   componentDidUpdate() {
     // this.input.focus(()=>{
@@ -71,26 +74,31 @@ class CommentInput extends React.Component {
     // 只清空评论
     this.setState({ content: "" }); //清空内容
   };
-
+  //! 抽出的时候私有方法需要抽出到smart组件中
   // 私有方法，请使用_开头
-  _saveUsername(username) {
-    localStorage.setItem("username", username);
-  }
-  _loadUsername() {
-    // 获取localStorage中的信息
-    const username = localStorage.getItem("username");
-    console.log(typeof username);
+  // _saveUsername(username) {
+  //   localStorage.setItem("username", username);
+  // }
+  // _loadUsername() {
+  //   // 获取localStorage中的信息
+  //   const username = localStorage.getItem("username");
+  //   console.log(typeof username);
 
-    if (username) {
-      this.setState({ username });
-    }
-  }
+  //   if (username) {
+  //     this.setState({ username });
+  //   }
+  // }
   handleUsernameBlur = (e) => {
     // 用户名失焦时存储username到localStorage
-    this._saveUsername(e.target.value);
+    // this._saveUsername(e.target.value);
     // console.log("====================================");
     // console.log(e.target.value);
     // console.log("====================================");
+
+    /* 更改为props里的 */
+    if(this.props.onUserNameInputBluer){
+      this.props.onUserNameInputBluer(event.target.value)
+    }
   };
   render() {
     return (
