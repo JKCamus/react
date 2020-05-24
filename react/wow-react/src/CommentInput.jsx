@@ -6,7 +6,13 @@ class CommentInput extends React.Component {
   static propTypes = {
     // onSubmit为父组件放下的钩子函数，即子传父的回调
     onSubmit: PropTypes.func,
+    username:PropTypes.any,
+    onUserNameInputBluer:PropTypes.func
   };
+  // 传入默认值
+  static defaultProp={
+    username:''
+  }
   constructor() {
     super();
     this.state = {
