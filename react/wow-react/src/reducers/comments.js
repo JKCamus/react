@@ -41,7 +41,7 @@ export const addComments = (comments) => {
     comments
   }
 }
-export const deleteComments = (comments) => {
+export const deleteComment = (comments) => {
   return {
     type: DELETE_COMMENT,
     comments

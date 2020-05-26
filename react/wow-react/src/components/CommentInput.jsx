@@ -40,7 +40,7 @@ class CommentInput extends React.Component {
     // }
     // this._loadUsername();
     //* 更改后
-    this.textarea.focus;
+    this.textarea.focus();
   }
   componentDidUpdate() {
     // this.input.focus(()=>{
@@ -97,7 +97,7 @@ class CommentInput extends React.Component {
 
     /* 更改为props里的 */
     if(this.props.onUserNameInputBluer){
-      this.props.onUserNameInputBluer(event.target.value)
+      this.props.onUserNameInputBluer(e.target.value)
     }
   };
   render() {

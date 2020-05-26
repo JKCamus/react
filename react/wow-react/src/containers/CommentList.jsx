@@ -1,16 +1,16 @@
-import react from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import CommentList from "../components/CommentList";
-import moduleName from "../reducers/comments.js";
+import { initComments, deleteComment } from "../reducers/comments.js";
 // CommentListContainer
 // 是一个Smart组件，负责评论数据的加载，渲染，删除
 // 与commentList和state交互
-class CommentListContainer extends Component {
+class CommentListContainer extends React.Component {
   static propTypes = {
     comments: PropTypes.array,
     initComment: PropTypes.func,
-    onDeleteComment: this.propTypes.func,
+    onDeleteComment: PropTypes.func,
   };
   componentWillMount() {
     this._loadComment();
@@ -19,10 +19,10 @@ class CommentListContainer extends Component {
   _loadComment() {
     // 从 LocalStorage 中加载评论
     let comments = localStorage.getItem("comments");
-    comments = comments ? JSONl.parse(comment) : [];
+    comments = comments ? JSON.parse(comments) : [];
     // this.props.onDeleteComment 是 connect 传进来的
     // 会 dispatch 一个 action 去删除评论
-    this.props.initComment(comment);
+    this.props.initComments(comments);
   }
   handleDeleteComments(index) {
     const { comments } = this.props;
@@ -42,7 +42,7 @@ class CommentListContainer extends Component {
     return (
       <CommentList
         comments={this.props.comments}
-        onDeleteComment={this.onDeleteComment.bind(this)}
+        onDeleteComment={this.handleDeleteComments.bind(this)}
       ></CommentList>
     );
   }
@@ -59,18 +59,18 @@ const mapDispatchToProps = (dispatch) => {
     // 当从 LocalStorage 加载评论列表以后就会通过这个方法
     // 把评论列表初始化到 state 当中
     initComments: (comments) => {
-      dispatch(initComment(comments));
+      dispatch(initComments(comments));
     },
     // 删除评论
-    deleteComments: (commentIndex) => {
-      dispatch(deleteComments(commentIndex));
+    onDeleteComment: (commentIndex) => {
+      dispatch(deleteComment(commentIndex));
     },
   };
 };
 // 将 CommentListContainer connect 到 store
 // 会把 comments、initComments、onDeleteComment 传给 CommentListContainer
 export default connect(
-  mapDispatchToProps,
   mapStateToProps,
+  mapDispatchToProps
+)(CommentListContainer);
 
-)(CommentListContainer)
