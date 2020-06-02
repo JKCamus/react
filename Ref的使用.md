@@ -60,3 +60,42 @@ class AutoFocusTextInput extends React.Component {
   }
 }
 ```
+
+##### 通过React.createRef() React 16.3版本后，使用此方法来创建ref。将其赋值给一个变量，通过ref挂载在dom节点或组件上，该ref的current属性,将能拿到dom节点或组件的实例
+
+```js
+class RefThree extends React.Component{
+  constructor(props){
+    super(props);
+    this.myRef=React.createRef();     <=
+  }
+  componentDidMount(){
+    console.log(this.myRef.current);
+  }
+  render(){
+    return <input ref={this.myRef}/>
+  }
+}
+
+```
+
+##### React.forwardRefReact 16.3版本后提供的，可以用来创建子组件，以传递ref
+
+```js
+class RefFour extends React.Component{
+  constructor(props){
+    super(props);
+    this.myFourRef=React.forwardRef();
+  }
+  componentDidMount(){
+    console.log(this.myFourRef.current);
+  }
+  render(){
+    return <Child ref={this.myFourRef}/>
+  }
+}
+
+```
+
+子组件通过React.forwardRef来创建，可以将ref传递到内部的节点或组件，进而实现跨层级的引用。forwardRef在高阶组件中可以获取到原始组件的实例.
+
