@@ -103,3 +103,40 @@ ReactDOM.render(
   <Table columns={columns} dataSource={data} />,
   document.getElementById("container")
 );
+
+
+ //   console.log("1",...mainInfo[mainTable]);
+      //   console.log("222",subInfo[tableName]);
+      // console.log("2",...subInfo[tableName]);
+      // debugger
+      let sameTags = [],
+        res = []
+      // debugger
+      if (columnNumber === 1) {
+        setCompareTable([
+          ...new Set([...mainInfo[mainTable], ...subInfo[tableName]])
+        ])
+        console.log('compareTab', compareTable)
+        sameTags = mainInfo[mainTable].filter((tags) =>
+          subInfo[tableName].includes(tags)
+        )
+        // console.log("sameTags",sameTags);
+        // console.log(columnNumber);
+        sameTags.map((tag) =>
+          res.push(mainTable + '.' + tag, tableName + '.' + tag)
+        )
+        // console.log('运行了1')
+      } else {
+        setCompareTable([
+          ...new Set([...[compareTable], ...subInfo[tableName]])
+        ])
+        // compareTable=[...new Set([...[compareTable],...subInfo[tableName]])]
+        console.log('运行了2compareTable', compareTable)
+
+        sameTags = subInfo[tableName].filter((tags) =>
+          compareTable.includes(tags)
+        )
+        sameTags.map((tag) => res.push(tableName + '.' + tag))
+        console.log('运行了2', sameTags)
+      }
+      setColumn((column) => [...column, ...res])
