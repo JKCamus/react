@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 const themes = {
   light: {
-    foreground: "#000000",
-    background: "#eeeeee",
+    foreground: "orange",
+    background: "lightblue"
   },
   dark: {
-    dark: "#fff",
-    background: "#222222",
-  },
+    foreground: "lightgray",
+    background: "gray"
+  }
 };
 const ThemeContext = React.createContext({
   theme: themes.light,
-  toggle: () => {},
+  toggle: () => {}
 });
 export default () => {
   const [theme, setTheme] = useState(themes.light);
@@ -20,18 +20,18 @@ export default () => {
       value={{
         theme,
         toggle: () => {
-          setTheme((theme) => {
+          setTheme(theme => {
             setTheme(theme === themes.light ? themes.dark : themes.light);
           });
-        },
+        }
       }}
     >
-      <Toolbar></Toolbar>
+      <Toolbar />
     </ThemeContext.Provider>
   );
 };
 const Toolbar = () => {
-  return <ThemeButton></ThemeButton>;
+  return <ThemeButton />;
 };
 const ThemeButton = () => {
   const context = useContext(ThemeContext);
@@ -40,10 +40,10 @@ const ThemeButton = () => {
       style={{
         fontSize: "32px",
         color: context.theme.foreground,
-        backgroundColor: context.theme.background,
+        backgroundColor: context.theme.background
       }}
       onClick={() => {
-        context.toggle;
+        context.toggle();
       }}
     >
       Click me!
