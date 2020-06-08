@@ -47,7 +47,19 @@
 2.   `dropdownStyle?: React.CSSProperties;`
 3.   `dropdownMenuStyle?: React.CSSProperties;`
 
-但是这几个只能修改menu相关，如果想改item的样式，还得在Option上更改样式
+但是这几个只能修改menu相关，如果想改item的样式，还得在Option上更改样式。
+
+这里提供另外一个方式：
+
+将`ant-select-dropdown-menu`的modal挂载到当前父级：
+
+​        `getPopupContainer={e => e.parentNode}`
+
+之后便可以直接使用之前的覆盖样式方式：
+
+
+
+
 
 
 
