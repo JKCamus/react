@@ -1,6 +1,9 @@
 import React from "react";
 //引入类型检查
 import PropTypes from "prop-types";
+import { Button, Modal, Form, Input, Radio, Select } from "antd";
+import "antd/dist/antd.css";
+const { Option } = Select;
 class CommentInput extends React.Component {
   // 检查在 constructor之外
   static propTypes = {
@@ -96,8 +99,8 @@ class CommentInput extends React.Component {
     // console.log("====================================");
 
     /* 更改为props里的 */
-    if(this.props.onUserNameInputBluer){
-      this.props.onUserNameInputBluer(e.target.value)
+    if (this.props.onUserNameInputBluer) {
+      this.props.onUserNameInputBluer(e.target.value);
     }
   };
   render() {
@@ -136,8 +139,138 @@ class CommentInput extends React.Component {
           <button onClick={this.submit}>发布</button>
         </div>
         CommentInput
+        <CollectionsPage></CollectionsPage>
       </div>
     );
   }
 }
+
+const CollectionCreateForm = Form.create({ name: "form_in_modal" })(
+  // eslint-disable-next-line
+  class extends React.Component {
+    render() {
+      const { visible, onCancel, onCreate, form } = this.props;
+      const { getFieldDecorator } = form;
+      return (
+        <Modal
+          visible={visible}
+          title="Create a new collection"
+          okText="Create"
+          onCancel={onCancel}
+          onOk={onCreate}
+        >
+          <Form layout="vertical">
+            <Form.Item label="名称">
+              {getFieldDecorator("city", {
+                rules: [
+                  {
+                    required: true,
+                    message: "Please input the title of collection!",
+                  },
+                ],
+              })(
+                <Select
+                  // defaultValue={visualType}
+                  placeholder="请输入"
+                  style={{ width: 200 }}
+                  // onChange={selectChange.bind(this, index)}
+                >
+                  <Option key={0} value={"xm"}>
+                    厦门
+                  </Option>
+                  <Option key={1} value={"cd"}>
+                    成都
+                  </Option>
+                </Select>
+              )}
+            </Form.Item>
+            <Form.Item label="值类型">
+              {/* {getFieldDecorator("description")(<Input type="textarea" />)} */}
+              {getFieldDecorator("valueType", {
+                rules: [
+                  {
+                    required: true,
+                    message: "请选择值类型!",
+                  },
+                ],
+              })(
+                <Select
+                  // defaultValue={visualType}
+                  placeholder="请选择值类型"
+                  style={{ width: 200 }}
+                  // onChange={selectChange.bind(this, index)}
+                >
+                  <Option key={0} value={"number"}>
+                    数字
+                  </Option>
+                  <Option key={1} value={"string"}>
+                    字符
+                  </Option>
+                </Select>
+              )}
+            </Form.Item>
+          </Form>
+        </Modal>
+      );
+    }
+  }
+);
+
+class CollectionsPage extends React.Component {
+  state = {
+    visible: false,
+    variabls: [],
+  };
+
+  showModal = () => {
+    this.setState({ visible: true });
+  };
+
+  handleCancel = () => {
+    this.setState({ visible: false });
+  };
+
+  handleCreate = () => {
+    const { form } = this.formRef.props;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+      const variable = {
+        key: "kajxz",
+        alias: "",
+        type: "auth",
+        name: values.city,
+        valueType: values.valueType,
+      };
+      console.log("Received values of form: ", values);
+      form.resetFields();
+      this.setState(
+        { visible: false, variabls: [...this.state.variabls, variable] },
+        console.log("state", this.state.variabls)
+      );
+    });
+  };
+
+  saveFormRef = (formRef) => {
+    this.formRef = formRef;
+  };
+
+  render() {
+    return (
+      <div>
+        <Button type="primary" onClick={this.showModal}>
+          New Collection
+        </Button>
+        <CollectionCreateForm
+          wrappedComponentRef={this.saveFormRef}
+          visible={true}
+          onCancel={this.handleCancel}
+          onCreate={this.handleCreate}
+        />
+      </div>
+    );
+  }
+}
+
 export default CommentInput;
