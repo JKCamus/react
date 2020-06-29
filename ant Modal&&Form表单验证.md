@@ -1,6 +1,16 @@
 ## ant Modal&&Form表单验证
 
+form验证大致可以分为在本组件进行验证和在父组件进行验证。
+
+在本组件进行验证较为简单，在父组件验证需要使用ref获取组件对应的信息
+
+当父组件为类组件的时候，ant提供了 `wrappedComponentRef`使用ref
+
+在函数组件中，需要自己构造。挂载对应的ref
+
 ant3.6版本，采用的是类组件。使用方式暂时如下：
+
+### 父组件为类组件
 
 1. 引入Form和FormComponentProps
 
@@ -85,6 +95,47 @@ export default Form.create<FormComponentProps>()(StepTwo)
 
    如上，其控制的为`‘main’`，`‘tagName’`，那么其他验证是否可行与其无关
 
+   ### 父组件为函数组件
+   
+   form的验证阶段在父组件，且父组件为函数
+   
+   父子组件为函数组件，子组件为类||函数组件的情况下：
+   
+   **父组件中：**
+   
+   引入`useRef`，创建 `const childForm = useRef(null)`
+   
+   挂载
+   
+   `<StepOne sources={sources} ref={ref=>childForm.current=ref} />`
+   
+   使用，在验证的地方：
+   
+   ```js
+     const next = () => {
+       childForm.current.validateFields((err, values) => {
+         if (err) {
+           return
+         }
+         setCurrent(current + 1)
+       })
+     }
+   ```
+   
+   子组件中
+   
+   在对应的Form挂载ref
+   
+   ```js
+   <Form ref={props.ref}>
+       <Form.Item>
+       正常使用
+       </Form.Item>
+   </Form>
+   ```
+   
+   
+   
    
 
 
