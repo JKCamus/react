@@ -99,3 +99,43 @@ class RefFour extends React.Component{
 
 子组件通过React.forwardRef来创建，可以将ref传递到内部的节点或组件，进而实现跨层级的引用。forwardRef在高阶组件中可以获取到原始组件的实例.
 
+### truly，ref有三种使用方式
+
+**==*<h2 ref=字符串/对象/函数>Hello React</h2>*==**
+
+1. 使用字符串，但是不推荐了。
+
+   ```js
+     	<h2 ref="titleRef">Hello React</h2>
+       // 1.使用方式一: 字符串(不推荐, 后续的更新会删除)
+       this.refs.titleRef.innerHTML = "Hello Camus";
+   ```
+
+2. 使用对象
+
+   ```js
+   这种方法需要引入createRef
+   import React, { PureComponent, createRef } from 'react';
+   在constructor中创建
+   this.titleRef = createRef();
+   在需要的地方挂载
+   <h2 ref={this.titleRef}>Hello React</h2>
+   使用
+   // 2.使用方式二: 对象方式
+   this.titleRef.current.innerHTML = "Hello JavaScript"; // 自带current属性
+   ```
+
+3. 使用函数
+
+   ```js
+   不需要引入createRef
+   直接在constructor中赋初始值
+   this.titleEl = null;   //
+   挂载
+   <h2 ref={arg => this.titleEl = arg}>Hello React</h2>
+   使用
+   // 3.使用方式三: 回调函数方式
+   this.titleEl.innerHTML = "Hello TypeScript";
+   ```
+
+   
