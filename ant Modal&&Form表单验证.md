@@ -25,7 +25,7 @@ ant3.6版本，采用的是类组件。使用方式暂时如下：
 export default Form.create<FormComponentProps>()(StepTwo)
 ```
 
-3. 函数组件中,传入Fomr相应的props，并取出。
+3. 函数组件中,传入Form相应的props，并取出。
 
    ```js
    const StepTwo = (prevProps: FormComponentProps) => { 

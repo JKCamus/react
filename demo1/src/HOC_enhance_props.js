@@ -38,6 +38,7 @@ class Detail extends PureComponent {
         <li>{this.props.nickname}</li>
         <li>{this.props.level}</li>
         <li>{this.props.region}</li>
+        <li>222</li>
       </ul>
     )
   }
