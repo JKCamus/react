@@ -39,5 +39,29 @@ function urlChange() {
 
 ```
 
+#### React Router的版本4开始，路由不再集中在一个包中进行管理了：
 
+react-router是router的核心部分代码；
+ react-router-dom是用于浏览器的；
+react-router-native是用于原生应用的
 
+### BrowserRouter或HashRouter
+
+ Router中包含了对路径改变的监听，并且会将相应的路径传递给子组件；
+ BrowserRouter使用history模式；
+HashRouter使用hash模式；
+
+Link和NavLink：
+ü 通常路径的跳转是使用Link组件，最终会被渲染成a元素；
+ü NavLink是在Link基础之上增加了一些样式属性（后续学习）；
+ü to属性：Link中最重要的属性，用于设置跳转到的路径；
+
+Route：
+ Route用于路径的匹配；
+ path属性：用于设置匹配到的路径；
+component属性：设置匹配到路径后，渲染的组件；
+ exact：精准匹配，只有精准匹配到完全一致的路径，才会渲染对应的组件；
+
+![image-20200729091211780](C:\Users\Camus\AppData\Roaming\Typora\typora-user-images\image-20200729091211780.png)
+
+`<Route exact path="/" component={Home}/>`如果不加exact，则为模糊匹配，会匹配到之下所有。/则为默认的路由地址。
