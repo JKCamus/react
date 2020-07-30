@@ -51,10 +51,19 @@ react-router-native是用于原生应用的
  BrowserRouter使用history模式；
 HashRouter使用hash模式；
 
-Link和NavLink：
-ü 通常路径的跳转是使用Link组件，最终会被渲染成a元素；
-ü NavLink是在Link基础之上增加了一些样式属性（后续学习）；
-ü to属性：Link中最重要的属性，用于设置跳转到的路径；
+Link和NavLink： 
+ 通常路径的跳转是使用Link组件，最终会被渲染成a元素；
+ NavLink是在Link基础之上增加了一些样式属性（后续学习）；
+
+**路径选中时，对应的a元素变为红色**，NavLink主要用于更改这类样式。
+
+![image-20200730090425053](C:\Users\Camus\AppData\Roaming\Typora\typora-user-images\image-20200730090425053.png)
+
+NavLInk比Link多了一个activeStyle,可以为a元素添加样式。为避免这个class在其他地方被使用了，出现样式的层叠，也可以自定义class，通过添加 activeClassName，自定义类名
+
+![image-20200730090657958](C:\Users\Camus\AppData\Roaming\Typora\typora-user-images\image-20200730090657958.png)
+
+to属性：Link中最重要的属性，用于设置跳转到的路径；
 
 Route：
  Route用于路径的匹配；
@@ -65,3 +74,12 @@ component属性：设置匹配到路径后，渲染的组件；
 ![image-20200729091211780](C:\Users\Camus\AppData\Roaming\Typora\typora-user-images\image-20200729091211780.png)
 
 `<Route exact path="/" component={Home}/>`如果不加exact，则为模糊匹配，会匹配到之下所有。/则为默认的路由地址。
+
+### Switch组件
+
+默认情况下，react-router中只要是路径被匹配到的Route对应的组件都会被渲染，
+
+但是实际开发中，我们往往希望有一种排他的思想：
+只要匹配到了第一个，那么后面的就不应该继续匹配了；
+ 这个时候我们可以使用Switch来将所有的Route进行包裹即可
+
