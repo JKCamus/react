@@ -134,7 +134,30 @@ export default Form.create<FormComponentProps>()(StepTwo)
    </Form>
    ```
    
+   自用封装表单验证,但是每个表单对应的form不同。但可以在当前组件达到复用，并且可以通过redux和context传到别的组件中。也可以通过在form表单上添加ref属性获取该验证方法。
    
+   ```js
+     
+   const VISSideFormVerify = (area, func) => {
+       form.validateFields(area, (err, values) => {
+         if (err) {
+           return;
+         }
+         // form.resetFields();//验证后清空
+         func();
+       });
+     };
+   
+     const next = () => {
+       const {VISSideFormVerify}=state
+       const func = (params) => {            //验证的相关
+         loadTableData();
+         setCurrent(current + 1);
+       }
+       const area=["sourceName","source"]     //关联的表单
+       VISSideFormVerify(area,func)
+     };
+   ```
    
    
 
