@@ -1,6 +1,6 @@
 import JKDiscover from "pages/discover";
-import JKFriend from "pages/friend";
 import JKMine from "pages/mine";
+import JKFriend from "pages/friend";
 
 const routes = [
   {
