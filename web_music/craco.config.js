@@ -8,4 +8,6 @@ module.exports = {
       "pages": resolve("src/pages"),
     },
   },
+
+
 };
