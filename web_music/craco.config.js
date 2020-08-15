@@ -6,6 +6,7 @@ module.exports = {
       "@": resolve("src"),
       "components": resolve("src/components"),
       "pages": resolve("src/pages"),
+      "common": resolve("src/common"),
     },
   },
 
