@@ -1,21 +1,14 @@
-import React, { memo,useEffect} from "react";
+import React, { memo, useEffect } from "react";
 import { logRoles } from "@testing-library/react";
 import { renderRoutes } from "react-router-config";
-import request from '@/services/request'
+import request from "@/services/request";
 
 import { discoverMenu } from "common/local-data";
 import { NavLink } from "react-router-dom";
 import { DiscoverWrapper, TopMenu } from "./style";
 
-
 export default memo(function JKDiscover(props) {
-  useEffect(() => {
-request({
-  url:"/banner"
-}).then(res=>{
-  console.log('res',res );
-})
-  }, [])
+  useEffect(() => {}, []);
   const { route } = props;
   return (
     <DiscoverWrapper>
