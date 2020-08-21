@@ -5,3 +5,4 @@ export function getTopBanners() {
     url: "/banner",
   });
 }
+

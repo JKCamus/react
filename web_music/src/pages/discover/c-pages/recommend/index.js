@@ -1,28 +1,26 @@
 import React, { memo, useEffect } from "react";
 import { connect} from "react-redux";
 import { getTopBannerAction } from "./store/actionCreators";
-import { getTopBanners } from '@/services/recommend';
+import {useSelector,useDispatch,shallowEqual} from 'react-redux'
 
 const JKRecommend = (props) => {
-  const {topBanners,getBanners}=props
+const {topBanners}=useSelector(state=>({
+  topBanners:state.getIn(["recommend","topBanners"])
+}),shallowEqual)
+const dispatch=useDispatch()
+
 useEffect(() => {
-  getBanners()
+  dispatch(getTopBannerAction())
+  // getBanners()
   
-}, [])
+}, [dispatch])
   return (
     <div>
-      <h1>recommend1111</h1>
+      <h1>{topBanners.length}</h1>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  topBanners: state.recommend.topBanners,
-});
-const mapDispatchToProps = (dispatch) => ({
-  getBanners: () => {
-    dispatch(getTopBannerAction());
-  },
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(JKRecommend));
+
+export default memo(JKRecommend);
