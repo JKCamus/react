@@ -23,6 +23,9 @@ export const BannerLeft = styled.div`
     height: 270px;
     .image {
       width: 100%;
+      /* 
+      jia */
+      height:100%;
     }
   }
 `

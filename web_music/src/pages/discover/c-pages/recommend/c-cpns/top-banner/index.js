@@ -9,6 +9,13 @@ import { Carousel } from "antd";
 export default memo(function TopBanner() {
   // state相关代码
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imgLocal, setImgLocal] = useState([
+    "@/assets/img/1.jpg",
+    "@/assets/img/2.jpg",
+    "@/assets/img/3.jpg",
+    "@/assets/img/4.jpg",
+  ]);
+
   // redux相关代码，状态
   const { topBanners } = useSelector(
     (state) => ({
@@ -36,6 +43,9 @@ export default memo(function TopBanner() {
   const bgImage =
     topBanners[currentIndex] &&
     topBanners[currentIndex].imageUrl + "?imageView&blur=40x20";
+  // const bgImage = imgLocal + "?imageView&blur=40x20";
+  //
+
 
   // 返回render
   return (
@@ -45,11 +55,12 @@ export default memo(function TopBanner() {
           <Carousel autoplay ref={bannerRef} beforeChange={bannerChange}>
             {topBanners.map((item, index) => {
               return (
-                <div className="banner-item" key={item.imageUrl}>
+                <div className="banner-item" key={item}>
                   <img
                     className="image"
                     src={item.imageUrl}
-                    alt={item.typeTitle}
+                    // src={`${require("@/assets/img/" + (index + 1) + ".jpg")}`}
+                    alt
                   />
                 </div>
               );
