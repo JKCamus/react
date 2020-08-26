@@ -60,7 +60,6 @@ export default memo(function TopBanner() {
                     className="image"
                     src={item.imageUrl}
                     // src={`${require("@/assets/img/" + (index + 1) + ".jpg")}`}
-                    alt
                   />
                 </div>
               );
