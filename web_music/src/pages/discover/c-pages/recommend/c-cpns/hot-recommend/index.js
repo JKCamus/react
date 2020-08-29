@@ -2,11 +2,12 @@ import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 import JKThemeHeaderRCM from "@/components/theme-header-rcm";
-import moduleName from '@/components/song-cover';
+import SongCover from '@/components/song-cover';
+
+import { HotRecommendWrapper } from "./style";
 
 import { getHotRecommendsAction } from "../../store/actionCreators";
 
-import { RankingWrapper } from "./style";
 export default memo(function JKHotRecommend() {
   const { hotRecommends } = useSelector(
     (state) => ({
@@ -20,7 +21,7 @@ export default memo(function JKHotRecommend() {
     dispatch(getHotRecommendsAction(8));
   }, [dispatch]);
   return (
-    <RankingWrapper>
+    <HotRecommendWrapper>
       <JKThemeHeaderRCM
         title="热门推荐"
         keywords={["华语", "流行", "民谣", "摇滚", "电子"]}
@@ -28,10 +29,10 @@ export default memo(function JKHotRecommend() {
       <div className="recommend-list"> 
         {
           hotRecommends.map((item,index)=>{
-          return <div  key={item.id}>{item.name}</div>
+          return <SongCover  key={item.id} info={item}></SongCover>
           })
         }
       </div>
-    </RankingWrapper>
+    </HotRecommendWrapper>
   );
 });
