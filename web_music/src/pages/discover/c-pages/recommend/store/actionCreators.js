@@ -24,9 +24,9 @@ export const getTopBannerAction=()=>{
 
 
 
-export const getHotRecommendsAction=()=>{
+export const getHotRecommendsAction=(limit)=>{
     return dispatch=>{
-        getHotRecommends().then(res=>{
+        getHotRecommends(limit).then(res=>{
             dispatch(changeHotRecommendsAction(res))
         })
     }

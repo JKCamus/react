@@ -20,13 +20,13 @@ const JKRecommend = (props) => {
           <HotRecommend></HotRecommend>
           <NewAlbum></NewAlbum>
           <RecommendRanking></RecommendRanking>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          {/* <div style={{ display: "flex", justifyContent: "center" }}>
             <img
               src={require("@/assets/img/七夕.png")}
               alt=""
               style={{ height: "80vh" }}
             />
-          </div>
+          </div> */}
         </RecommendLeft>
         <RecommendRight></RecommendRight>
       </Content>
