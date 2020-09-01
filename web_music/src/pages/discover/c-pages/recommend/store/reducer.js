@@ -14,6 +14,7 @@ function reducer(state = defaultState, action) {
       // 更改为immutable
       return state.set("topBanners",action.topBanners);
       case actionTypes.CHANGE_HOT_RECOMMEND:
+        console.log('res',action.hotRecommends )
       return  state.set("hotRecommends",action.hotRecommends)
       case actionTypes.CHANGE_NEW_ALBUM:
       return  state.set("newAlbums",action.newAlbums)

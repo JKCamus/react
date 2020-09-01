@@ -14,7 +14,7 @@ const changeHotRecommendsAction=(res)=>({
 )
 const changeNewAlbumAction=(res)=>({
     type:actionTypes.CHANGE_NEW_ALBUM,
-    newAlbum:res.albums
+    newAlbums:res.albums
 })
 
 

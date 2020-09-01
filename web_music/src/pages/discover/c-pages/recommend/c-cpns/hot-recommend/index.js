@@ -20,6 +20,7 @@ export default memo(function JKHotRecommend() {
   useEffect(() => {
     dispatch(getHotRecommendsAction(8));
   }, [dispatch]);
+  
   return (
     <HotRecommendWrapper>
       <JKThemeHeaderRCM
