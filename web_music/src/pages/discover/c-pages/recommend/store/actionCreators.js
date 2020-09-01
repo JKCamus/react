@@ -1,6 +1,6 @@
 import * as actionTypes from './constants';
 // 引入自发送请求相关
-import {getTopBanners,getHotRecommends} from 'services/recommend'
+import {getTopBanners,getHotRecommends,getNewAlbums} from 'services/recommend'
 
 const changeTopBannerAction=(res)=>({
         // 获取数据存入对应的state中
@@ -12,6 +12,11 @@ const changeHotRecommendsAction=(res)=>({
     hotRecommends:res.result
 }
 )
+const changeNewAlbumAction=(res)=>({
+    type:actionTypes.CHANGE_NEW_ALBUM,
+    newAlbum:res.albums
+})
+
 
 //请求数据action，在使用的组件中，通过mapDispatchToProps进行分发
 export const getTopBannerAction=()=>{
@@ -30,4 +35,13 @@ export const getHotRecommendsAction=(limit)=>{
             dispatch(changeHotRecommendsAction(res))
         })
     }
+}
+
+export function getNewAlbumAction (limit){
+    return dispatch=>{
+        getNewAlbums(limit).then(res=>{
+            dispatch(changeNewAlbumAction(res))
+        })
+    }
+ 
 }
