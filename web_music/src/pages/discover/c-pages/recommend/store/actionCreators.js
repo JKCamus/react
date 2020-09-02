@@ -1,6 +1,6 @@
 import * as actionTypes from './constants';
 // 引入自发送请求相关
-import {getTopBanners,getHotRecommends,getNewAlbums} from 'services/recommend'
+import {getTopBanners,getHotRecommends,getNewAlbums,getTopList} from 'services/recommend'
 
 const changeTopBannerAction=(res)=>({
         // 获取数据存入对应的state中
@@ -44,4 +44,13 @@ export function getNewAlbumAction (limit){
         })
     }
  
+}
+
+export function getTopListAction(idx) {
+    return dispatch=>{
+        getTopList(idx).then(res=>{
+            console.log('res', res)
+        })
+    }
+    
 }
