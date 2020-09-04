@@ -3,8 +3,11 @@ import * as actionTypes from "./constants";
 
 const defaultState = Map({
   topBanners: [],
-  hotRecommends:[],
-  newAlbums:[]
+  hotRecommends: [],
+  newAlbums: [],
+  originRanking: {},
+  newRanking: {},
+  upRanking: {},
 });
 function reducer(state = defaultState, action) {
   switch (action.type) {
@@ -12,12 +15,17 @@ function reducer(state = defaultState, action) {
       // 配合存入数据
       // return { ...state, topBanners: action.topBanners };
       // 更改为immutable
-      return state.set("topBanners",action.topBanners);
-      case actionTypes.CHANGE_HOT_RECOMMEND:
-        console.log('res',action.hotRecommends )
-      return  state.set("hotRecommends",action.hotRecommends)
-      case actionTypes.CHANGE_NEW_ALBUM:
-      return  state.set("newAlbums",action.newAlbums)
+      return state.set("topBanners", action.topBanners);
+    case actionTypes.CHANGE_HOT_RECOMMEND:
+      return state.set("hotRecommends", action.hotRecommends);
+    case actionTypes.CHANGE_NEW_ALBUM:
+      return state.set("newAlbums", action.newAlbums);
+    case actionTypes.CHANGE_UP_RANKING:
+      return state.set("upRanking", action.upRanking);
+    case actionTypes.CHANGE_NEW_RANKING:
+      return state.set("newRanking", action.newRanking);
+    case actionTypes.CHANGE_ORIGIN_RANKING:
+      return state.set("originRanking", action.originRanking);
     default:
       return state;
   }
