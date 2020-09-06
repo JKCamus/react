@@ -2,6 +2,8 @@ import React, { memo, useEffect } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 import JKThemeHeaderRCM from "@/components/theme-header-rcm";
+import TopRanking from "@/components/top-ranking";
+import { RankingWrapper } from "./style";
 
 import { getTopListAction } from "../../store/actionCreators";
 
@@ -20,8 +22,13 @@ export default memo(function JKRecommendRanking() {
   }, [dispatch]);
 
   return (
-    <div>
+    <RankingWrapper>
       <JKThemeHeaderRCM title="榜单"></JKThemeHeaderRCM>
-    </div>
+      <div className="tops">
+        <TopRanking info={newRanking}></TopRanking>
+        <TopRanking info={upRanking}></TopRanking>
+        <TopRanking info={originRanking}></TopRanking>
+      </div>
+    </RankingWrapper>
   );
 });

@@ -29,7 +29,7 @@ display: flex;
   }
   .select-list {
     display: flex;
-    line-height: 70px;
+    line-height: 70px; 
     
     .select-item {
       position: relative;
