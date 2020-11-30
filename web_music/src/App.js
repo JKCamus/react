@@ -5,17 +5,19 @@ import { renderRoutes } from "react-router-config";
 import routes from "./router";
 import store from "./store";
 
-import HYAppHeader from "@/components/app-header";
-import HYAppFooter from "@/components/app-footer";
+import AppHeader from "@/components/app-header";
+import AppFooter from "@/components/app-footer";
+import AppPlayerBar from './pages/player/app-player-bar';
 import { HashRouter } from "react-router-dom";
 
 export default memo(function App() {
   return (
     <Provider store={store}>
       <HashRouter>
-        <HYAppHeader />
+        <AppHeader />
         {renderRoutes(routes)}
-        <HYAppFooter />
+        <AppFooter />
+        <AppPlayerBar></AppPlayerBar>
       </HashRouter>
     </Provider>
   );
