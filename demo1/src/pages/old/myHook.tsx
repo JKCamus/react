@@ -26,7 +26,10 @@ const Profile = () => {
   useLoggingLife("Profile");
   return <h1>Profile</h1>;
 };
-
+/**
+ * @description: 自定义hook
+ * @param {*} name
+ */
 const useLoggingLife = (name) => {
   useEffect(() => {
     console.log(`${name}组件被创建出来了`);
