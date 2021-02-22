@@ -8,7 +8,7 @@
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": [
       "dom",
       "es5",
@@ -25,14 +25,16 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "strict": true
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules"
   ],
+  "extends": "./paths.json",
   "include": [
     "src"
   ]

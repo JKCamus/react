@@ -5,7 +5,7 @@ interface optionT {
   key: string;
   label: string;
 }
-
+// FormComponentProps
 const SelectAll = (props) => {
   const [formVisible, setFormVisible] = useState(false);
   const { form } = props;
