@@ -27,9 +27,13 @@ export class App extends Component {
           企业文化
         </NavLink> */}
         <HashRouter>
-        <NavLink exact to="/custom-hook" >
-          自定义hook
-        </NavLink>
+          <NavLink exact to="/custom-hook">
+            自定义hook
+          </NavLink>
+          <NavLink exact to="/review">
+            Review
+          </NavLink>
+
           <Suspense fallback={<div>page loading</div>}>
             {renderRoutes(routes)}
           </Suspense>
